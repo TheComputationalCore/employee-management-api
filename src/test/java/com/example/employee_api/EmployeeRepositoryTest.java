@@ -1,6 +1,7 @@
-package com.example.employee_api.repository;
+package com.example.employee_api;
 
 import com.example.employee_api.model.Employee;
+import com.example.employee_api.repository.EmployeeRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +13,7 @@ import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @DataMongoTest
-@ActiveProfiles("test")     // Loads application-test.properties
+@ActiveProfiles("test")
 class EmployeeRepositoryTest {
 
     @Autowired
@@ -29,7 +30,6 @@ class EmployeeRepositoryTest {
         employeeRepository.save(e);
 
         Employee saved = employeeRepository.findById("1").orElse(null);
-
         assertThat(saved).isNotNull();
         assertThat(saved.getEmployeeName()).isEqualTo("John");
     }
@@ -47,7 +47,6 @@ class EmployeeRepositoryTest {
         employeeRepository.save(new Employee("3", "Bob", "bob@example.com", "Canada"));
 
         Employee e = employeeRepository.findById("3").orElse(null);
-
         assertThat(e).isNotNull();
         assertThat(e.getEmployeeEmail()).isEqualTo("bob@example.com");
     }
