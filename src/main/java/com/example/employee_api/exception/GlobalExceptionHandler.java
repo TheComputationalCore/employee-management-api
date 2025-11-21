@@ -1,4 +1,4 @@
-package com.example.employee_api.exception;
+package com.example.employee_management_api.exception;
 
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ControllerAdvice;
