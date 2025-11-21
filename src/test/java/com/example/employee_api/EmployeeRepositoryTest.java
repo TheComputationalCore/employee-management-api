@@ -12,7 +12,7 @@ import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @DataMongoTest
-@ActiveProfiles("test")   // REQUIRED
+@ActiveProfiles("test")     // Loads application-test.properties
 class EmployeeRepositoryTest {
 
     @Autowired
@@ -27,6 +27,7 @@ class EmployeeRepositoryTest {
     void testSaveEmployee() {
         Employee e = new Employee("1", "John", "john@example.com", "USA");
         employeeRepository.save(e);
+
         Employee saved = employeeRepository.findById("1").orElse(null);
 
         assertThat(saved).isNotNull();
@@ -36,14 +37,15 @@ class EmployeeRepositoryTest {
     @Test
     void testFindAllEmployees() {
         employeeRepository.save(new Employee("2", "Alex", "alex@example.com", "UK"));
-        List<Employee> list = employeeRepository.findAll();
 
+        List<Employee> list = employeeRepository.findAll();
         assertThat(list).hasSize(1);
     }
 
     @Test
     void testFindById() {
         employeeRepository.save(new Employee("3", "Bob", "bob@example.com", "Canada"));
+
         Employee e = employeeRepository.findById("3").orElse(null);
 
         assertThat(e).isNotNull();
