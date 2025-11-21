@@ -1,8 +1,8 @@
-package com.example.employee_api.service;
+package com.example.employee_management_api.service;
 
-import com.example.employee_api.exception.EmployeeNotFoundException;
-import com.example.employee_api.model.Employee;
-import com.example.employee_api.repository.EmployeeRepository;
+import com.example.employee_management_api.exception.EmployeeNotFoundException;
+import com.example.employee_management_api.model.Employee;
+import com.example.employee_management_api.repository.EmployeeRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
