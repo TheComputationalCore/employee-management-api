@@ -5,13 +5,13 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.data.mongo.DataMongoTest;
+import org.springframework.test.context.ActiveProfiles;   // ✅ REQUIRED IMPORT
 
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-
-@ActiveProfiles("test")
+@ActiveProfiles("test")   // → This now resolves correctly
 @DataMongoTest
 class EmployeeRepositoryTest {
 
