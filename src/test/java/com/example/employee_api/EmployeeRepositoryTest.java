@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.data.mongo.DataMongoTest;
 import org.springframework.test.context.ActiveProfiles;
 
-
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -20,39 +19,34 @@ class EmployeeRepositoryTest {
     private EmployeeRepository employeeRepository;
 
     @BeforeEach
-    void setUp() {
+    void setup() {
         employeeRepository.deleteAll();
     }
 
     @Test
     void testSaveEmployee() {
-        Employee employee = new Employee("101", "John", "john@example.com", "USA");
-        employeeRepository.save(employee);
+        Employee e = new Employee("1", "John", "john@example.com", "USA");
+        employeeRepository.save(e);
 
-        Employee saved = employeeRepository.findById("101").orElse(null);
-
+        Employee saved = employeeRepository.findById("1").orElse(null);
         assertThat(saved).isNotNull();
         assertThat(saved.getEmployeeName()).isEqualTo("John");
     }
 
     @Test
     void testFindAllEmployees() {
-        employeeRepository.save(new Employee("1", "A", "a@gmail.com", "X"));
-        employeeRepository.save(new Employee("2", "B", "b@gmail.com", "Y"));
+        employeeRepository.save(new Employee("2", "Alex", "alex@example.com", "UK"));
 
-        List<Employee> employees = employeeRepository.findAll();
-
-        assertThat(employees).hasSize(2);
+        List<Employee> list = employeeRepository.findAll();
+        assertThat(list).hasSize(1);
     }
 
     @Test
     void testFindById() {
-        Employee employee = new Employee("5", "C", "c@gmail.com", "Z");
-        employeeRepository.save(employee);
+        employeeRepository.save(new Employee("3", "Bob", "bob@example.com", "Canada"));
 
-        Employee found = employeeRepository.findById("5").orElse(null);
-
-        assertThat(found).isNotNull();
-        assertThat(found.getEmployeeEmail()).isEqualTo("c@gmail.com");
+        Employee e = employeeRepository.findById("3").orElse(null);
+        assertThat(e).isNotNull();
+        assertThat(e.getEmployeeEmail()).isEqualTo("bob@example.com");
     }
 }
