@@ -1,7 +1,7 @@
-package com.example.employee_api.controller;
+package com.example.employee_management_api.controller;
 
-import com.example.employee_api.model.Employee;
-import com.example.employee_api.service.EmployeeService;
+import com.example.employee_management.api.model.Employee;
+import com.example.employee_management.api.service.EmployeeService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
