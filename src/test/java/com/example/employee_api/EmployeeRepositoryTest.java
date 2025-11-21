@@ -12,6 +12,7 @@ import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @DataMongoTest
+@ActiveProfiles("test")   // REQUIRED
 class EmployeeRepositoryTest {
 
     @Autowired
