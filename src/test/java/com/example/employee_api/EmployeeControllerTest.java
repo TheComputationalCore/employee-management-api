@@ -1,7 +1,7 @@
-package com.example.employee_api.controller;
+package com.example.employee_management_api.controller;
 
-import com.example.employee_api.model.Employee;
-import com.example.employee_api.service.EmployeeService;
+import com.example.employee_management_api.model.Employee;
+import com.example.employee_management_api.service.EmployeeService;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
