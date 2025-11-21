@@ -1,6 +1,6 @@
-package com.example.employee_api.repository;
+package com.example.employee_management_api.repository;
 
-import com.example.employee_api.model.Employee;
+import com.example.employee_management_api.model.Employee;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,6 +37,7 @@ class EmployeeRepositoryTest {
     void testFindAllEmployees() {
         employeeRepository.save(new Employee("2", "Alex", "alex@example.com", "UK"));
         List<Employee> list = employeeRepository.findAll();
+
         assertThat(list).hasSize(1);
     }
 
