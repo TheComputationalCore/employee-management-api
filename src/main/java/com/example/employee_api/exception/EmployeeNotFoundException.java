@@ -1,4 +1,4 @@
-package com.example.employee_api.exception;
+package com.example.employee_management_api.exception;
 
 public class EmployeeNotFoundException extends RuntimeException {
     public EmployeeNotFoundException(String message) {
