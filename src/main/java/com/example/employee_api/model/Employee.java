@@ -1,4 +1,4 @@
-package com.example.employee_api.model;
+package com.example.employee_management_api.model;
 
 import org.springframework.data.annotation.Id;
 
