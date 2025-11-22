@@ -3,6 +3,7 @@ package com.example.employee_management_api.model;
 import org.springframework.data.annotation.Id;
 
 public class Employee {
+
     @Id
     private String employeeId;
     private String employeeName;

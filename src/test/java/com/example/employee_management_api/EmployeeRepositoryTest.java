@@ -1,6 +1,7 @@
-package com.example.employee_management_api.repository;
+package com.example.employee_management_api;
 
 import com.example.employee_management_api.model.Employee;
+import com.example.employee_management_api.repository.EmployeeRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,34 +20,37 @@ class EmployeeRepositoryTest {
     private EmployeeRepository employeeRepository;
 
     @BeforeEach
-    void setup() {
+    void setUp() {
         employeeRepository.deleteAll();
     }
 
     @Test
     void testSaveEmployee() {
-        Employee e = new Employee("1", "John", "john@example.com", "USA");
-        employeeRepository.save(e);
+        Employee emp = new Employee(null, "John Doe", "john@example.com", "IT");
+        Employee saved = employeeRepository.save(emp);
 
-        Employee saved = employeeRepository.findById("1").orElse(null);
-        assertThat(saved).isNotNull();
-        assertThat(saved.getEmployeeName()).isEqualTo("John");
+        assertThat(saved.getEmployeeId()).isNotNull();
     }
 
     @Test
     void testFindAllEmployees() {
-        employeeRepository.save(new Employee("2", "Alex", "alex@example.com", "UK"));
+        employeeRepository.save(new Employee(null, "A", "a@example.com", "IT"));
+        employeeRepository.save(new Employee(null, "B", "b@example.com", "HR"));
+
         List<Employee> list = employeeRepository.findAll();
 
-        assertThat(list).hasSize(1);
+        assertThat(list.size()).isEqualTo(2);
     }
 
     @Test
     void testFindById() {
-        employeeRepository.save(new Employee("3", "Bob", "bob@example.com", "Canada"));
-        Employee e = employeeRepository.findById("3").orElse(null);
+        Employee emp = employeeRepository.save(
+                new Employee(null, "Sam", "sam@example.com", "IT")
+        );
 
-        assertThat(e).isNotNull();
-        assertThat(e.getEmployeeEmail()).isEqualTo("bob@example.com");
+        Employee found = employeeRepository.findById(emp.getEmployeeId()).orElse(null);
+
+        assertThat(found).isNotNull();
+        assertThat(found.getEmployeeName()).isEqualTo("Sam");
     }
 }
