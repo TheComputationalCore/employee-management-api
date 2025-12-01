@@ -7,7 +7,7 @@
 ![License: MIT](https://img.shields.io/badge/License-MIT-yellow)
 ![Status](https://img.shields.io/badge/Status-Active-success)
 
-A **production‑ready REST API** built using **Spring Boot**, **Spring Data MongoDB**, and **Swagger/OpenAPI**, designed for managing employee data efficiently and cleanly.  
+A **Employee Management API** built using **Spring Boot**, **Spring Data MongoDB**, and **Swagger/OpenAPI**, designed for managing employee data efficiently and cleanly.  
 This API is built with a modern layered architecture, includes end‑to‑end CRUD operations, strong validation, exception handling, and embedded documentation.
 
 ---
