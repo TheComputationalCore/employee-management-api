@@ -206,4 +206,4 @@ This project is licensed under the **MIT License**.
 
 ---
 
-✨ *This README is designed to be portfolio‑ready, professional, and impressive to recruiters, hiring managers, and contributors.*  
+
