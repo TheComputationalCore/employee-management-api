@@ -188,7 +188,6 @@ mvn spring-boot:run
 ---
 
 # 📸 Screenshots
-(These paths assume images exist under `screenshots/` in your GitHub repo.)
 
 ### Swagger UI  
 ![Swagger](screenshots/1.png)
